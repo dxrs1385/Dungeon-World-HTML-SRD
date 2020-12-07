@@ -23,7 +23,7 @@ function Parse(html) {
 		var result = {
 			type: monsterType,
 			names: names,
-			tags: tags,
+			tags: tags, // TODO: split tags into different groups (as defined in rule book)
 			specialQualities: qualities,
 			description: description,
 			instinct: instinct,

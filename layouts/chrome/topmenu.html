@@ -1,102 +1,104 @@
 {{ $baseurl := .Site.BaseURL }}
 <nav id="site-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
- <!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header">
- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-   <span class="sr-only">Toggle navigation</span>
-   <span class="icon-bar"></span>
-   <span class="icon-bar"></span>
-   <span class="icon-bar"></span>
- </button>
- <a class="navbar-brand" href="{{ $baseurl }}">{{ .Site.Title }}</a>
-</div>
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{ $baseurl }}">{{ .Site.Title }}</a>
+  </div>
 
-<!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
- <ul class="nav navbar-nav">
-   <li class="dropdown">
-     <a href="#" class="dropdown-toggle" data-toggle="dropdown">本遊戲 <b class="caret"></b></a>
-     <ul class="dropdown-menu">
-       <li><a href="{{ $baseurl }}/introduction">簡介</a></li>
-        <li><a href="{{ $baseurl }}/playing_the_game">進行遊戲</a></li>
-        <li><a href="{{ $baseurl }}/example">遊玩範例</a></li>
-        <li><a href="{{ $baseurl }}/character_creation">角色創造</a></li>
-        <li><a href="{{ $baseurl }}/moves">動作</a></li>
-        <li><a href="{{ $baseurl }}/equipment">裝備與服務</a></li>
-       <li class="divider"></li>
-        <li><a href="{{ $baseurl }}/moves_discussion">討論 - 動作</a></li>
-     </ul>
-   </li>
-   <li class="dropdown">
-     <a href="#" class="dropdown-toggle" data-toggle="dropdown">職業 <b class="caret"></b></a>
-     <ul class="dropdown-menu">
-        <li><a href="{{ $baseurl }}/classes/barbarian">野蠻人</a></li>
-        <li><a href="{{ $baseurl }}/classes/bard">吟遊詩人</a></li>
-        <li><a href="{{ $baseurl }}/classes/cleric">牧師</a></li>
-        <li><a href="{{ $baseurl }}/classes/druid">德魯伊</a></li>
-        <li><a href="{{ $baseurl }}/classes/fighter">戰士</a></li>
-        <li><a href="{{ $baseurl }}/classes/immolator">燔祭者</a></li>
-        <li><a href="{{ $baseurl }}/classes/paladin">聖武士</a></li>
-        <li><a href="{{ $baseurl }}/classes/ranger">遊俠</a></li>
-        <li><a href="{{ $baseurl }}/classes/thief">盜賊</a></li>
-        <li><a href="{{ $baseurl }}/classes/wizard">法師</a></li>
-       <li class="divider"></li>
-        <li><a href="{{ $baseurl }}/classes/cleric/spells">牧師法術</a></li>
-        <li><a href="{{ $baseurl }}/classes/wizard/spells">法師法術</a></li>
-       <li class="divider"></li>
-        <li><a href="{{ $baseurl }}/classes/class_moves_discussion">討論 - 職業動作</a></li>
-     </ul>
-   </li>
-   <li class="dropdown">
-     <a href="#" class="dropdown-toggle" data-toggle="dropdown">GM章節 <b class="caret"></b></a>
-     <ul class="dropdown-menu">
-        <li><a href="{{ $baseurl }}/gm/basics">基本</a></li>
-        <li><a href="{{ $baseurl }}/gm/first_session">第一次聚會</a></li>
-        <li><a href="{{ $baseurl }}/gm/fronts">前置</a></li>
-        <li><a href="{{ $baseurl }}/gm/the_world">世界</a></li>
-        <li><a href="{{ $baseurl }}/gm/advanced_delving">深入鑽研</a></li>
-     </ul>
-   </li>
-   <li class="dropdown">
-     <a href="#" class="dropdown-toggle" data-toggle="dropdown">怪物 <b class="caret"></b></a>
-     <ul class="dropdown-menu">
-        <li><a href="{{ $baseurl }}/monsters/overview">總覽</a></li>
-       <li class="divider"></li>
-        <li><a href="{{ $baseurl }}/monsters/caverns">洞穴居族</a> </li>
-        <li><a href="{{ $baseurl }}/monsters/folk">王國住民</a> </li>
-        <li><a href="{{ $baseurl }}/monsters/woods">幽暗森林</a> </li>
-        <li><a href="{{ $baseurl }}/monsters/undead">不死軍團</a> </li>
-        <li><a href="{{ $baseurl }}/monsters/depths">下界深淵</a> </li>
-        <li><a href="{{ $baseurl }}/monsters/planes">位面勢力</a> </li>
-        <li><a href="{{ $baseurl }}/monsters/hordes">貪掠團夥</a> </li>
-        <li><a href="{{ $baseurl }}/monsters/swamp">沼澤棲物</a> </li>
-        <li><a href="{{ $baseurl }}/monsters/experiments">扭曲實驗體</a> </li>
-     </ul>
-    </li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">附錄 <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a href="{{ $baseurl }}/appendices/conversion">冒險模組轉換</a></li>
-        <li><a href="{{ $baseurl }}/appendices/teaching">遊戲教學</a></li>
-        <li><a href="{{ $baseurl }}/appendices/npcs">速成NPC</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">地城世界帶團指南 <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a href="{{ $baseurl }}/dwg/dungeonworldguide">地城世界帶團指南</a></li>
-        <li><a href="{{ $baseurl }}/dwg/sample_campaign_front">範例戰役前置</a></li>
-        <li><a href="{{ $baseurl }}/dwg/compendium_classes">範例概略職業</a></li>
-        <li><a href="{{ $baseurl }}/dwg/example_of_play">遊玩範例</a></li>
-      </ul>
-    </li>
-  </ul>
- <!--<form class="navbar-form navbar-left" role="search" method="get" id="search" action="http://duckduckgo.com/">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">本遊戲 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ $baseurl }}/introduction">簡介</a></li>
+          <li><a href="{{ $baseurl }}/playing_the_game">進行遊戲</a></li>
+          <li><a href="{{ $baseurl }}/example">遊玩範例</a></li>
+          <li><a href="{{ $baseurl }}/character_creation">角色創造</a></li>
+          <li><a href="{{ $baseurl }}/moves">動作</a></li>
+          <li><a href="{{ $baseurl }}/equipment">裝備與服務</a></li>
+          <li class="divider"></li>
+          <li><a href="{{ $baseurl }}/moves_discussion">討論 - 動作</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">職業 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ $baseurl }}/classes/barbarian">野蠻人</a></li>
+          <li><a href="{{ $baseurl }}/classes/bard">吟遊詩人</a></li>
+          <li><a href="{{ $baseurl }}/classes/cleric">牧師</a></li>
+          <li><a href="{{ $baseurl }}/classes/druid">德魯伊</a></li>
+          <li><a href="{{ $baseurl }}/classes/fighter">戰士</a></li>
+          <li><a href="{{ $baseurl }}/classes/immolator">燔祭者</a></li>
+          <li><a href="{{ $baseurl }}/classes/paladin">聖武士</a></li>
+          <li><a href="{{ $baseurl }}/classes/ranger">遊俠</a></li>
+          <li><a href="{{ $baseurl }}/classes/thief">盜賊</a></li>
+          <li><a href="{{ $baseurl }}/classes/wizard">法師</a></li>
+          <li class="divider"></li>
+          <li><a href="{{ $baseurl }}/classes/cleric/spells">牧師法術</a></li>
+          <li><a href="{{ $baseurl }}/classes/wizard/spells">法師法術</a></li>
+          <li class="divider"></li>
+          <li><a href="{{ $baseurl }}/classes/class_moves_discussion">討論 - 職業動作</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GM章節 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ $baseurl }}/gm/basics">基本</a></li>
+          <li><a href="{{ $baseurl }}/gm/first_session">第一次聚會</a></li>
+          <li><a href="{{ $baseurl }}/gm/fronts">前置</a></li>
+          <li><a href="{{ $baseurl }}/gm/the_world">世界</a></li>
+          <li><a href="{{ $baseurl }}/gm/advanced_delving">深入鑽研</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">怪物 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ $baseurl }}/monsters/overview">總覽</a></li>
+          <li class="divider"></li>
+          <li><a href="{{ $baseurl }}/monsters/caverns">洞穴居族</a> </li>
+          <li><a href="{{ $baseurl }}/monsters/folk">王國住民</a> </li>
+          <li><a href="{{ $baseurl }}/monsters/woods">幽暗森林</a> </li>
+          <li><a href="{{ $baseurl }}/monsters/undead">不死軍團</a> </li>
+          <li><a href="{{ $baseurl }}/monsters/depths">下界深淵</a> </li>
+          <li><a href="{{ $baseurl }}/monsters/planes">位面勢力</a> </li>
+          <li><a href="{{ $baseurl }}/monsters/hordes">貪掠團夥</a> </li>
+          <li><a href="{{ $baseurl }}/monsters/swamp">沼澤棲物</a> </li>
+          <li><a href="{{ $baseurl }}/monsters/experiments">扭曲實驗體</a> </li>
+          <li class="divider"></li>
+          <li><a href="{{ $baseurl }}/lookup">快速查找</a> </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">附錄 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ $baseurl }}/appendices/conversion">冒險模組轉換</a></li>
+          <li><a href="{{ $baseurl }}/appendices/teaching">遊戲教學</a></li>
+          <li><a href="{{ $baseurl }}/appendices/npcs">速成NPC</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">地城世界帶團指南 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ $baseurl }}/dwg/dungeonworldguide">地城世界帶團指南</a></li>
+          <li><a href="{{ $baseurl }}/dwg/sample_campaign_front">範例戰役前置</a></li>
+          <li><a href="{{ $baseurl }}/dwg/compendium_classes">範例概略職業</a></li>
+          <li><a href="{{ $baseurl }}/dwg/example_of_play">遊玩範例</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!--<form class="navbar-form navbar-left" role="search" method="get" id="search" action="http://duckduckgo.com/">
     <input type="hidden" name="sites"value="{{ $baseurl }}"/>
       <div class="form-group">
          <input type="text" class="form-control" name="q" maxlength="255" placeholder="Search"/>
       </div>
       <input type="submit" value="DuckDuckGo Search" style="display:none;" />
  </form>-->
-</div><!-- /.navbar-collapse -->
+  </div><!-- /.navbar-collapse -->
 </nav>

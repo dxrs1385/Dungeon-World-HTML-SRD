@@ -49,6 +49,11 @@
 			font-size: 20.8px;
 			padding-left: 22px;
 		}
+
+		span.Tags,
+		tag {
+			font-size: 70% !important;
+		}
 	</style>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -66,10 +71,16 @@
 			}
 		});
 
-		var nameFilterCreator = partialName => ({
-			partialName: partialName,
+		var nameFilterCreator = (text, operation) => ({
+			text: text,
+			operation: operation,
 			test: function (json) {
-				return json.names.english.includes(this.partialName) || json.names.chinese.includes(this.partialName);
+				switch (this.operation) {
+					case 'partial':
+						return json.names.english.includes(this.text) || json.names.chinese.includes(this.text);
+					default:
+						return true;
+				}
 			}
 		});
 
@@ -131,9 +142,9 @@
 		var filterOptions = [
 			[
 				typeFilterCreator('洞穴居族'),
-				// nameFilterCreator('C'),
+				nameFilterCreator('C', 'partial'),
 				// tagFilterCreator('集團'),
-				armorPointFilterCreator(2, '<=')
+				// armorPointFilterCreator(2, '<=')
 			],
 			[
 				typeFilterCreator('貪掠團夥'),
@@ -306,6 +317,7 @@
 					if (isSizeTag(tag)) className = "green";
 					if (isOrganizationTag(tag)) className = "blue";
 					if (isSpellLevelTag(tag)) className = "purple";
+					if (isTypeTag(tag)) className = "yellow";
 					return `<tag class="${className}">${tag}</tag>`;
 				}).join(" "));
 			});
@@ -333,6 +345,9 @@
 			}
 			function isOrganizationTag(tag) {
 				return (tag.match(/成群|集團|單獨|Horde|Group|Solitary/)) ? true : false;
+			}
+			function isTypeTag(tag) {
+				return (tag.match(/洞穴居族|下界深淵|扭曲實驗體|王國住民|貪掠團夥|位面勢力|沼澤棲物|不死軍團|幽暗森林/)) ? true : false
 			}
 		}
 	</script>

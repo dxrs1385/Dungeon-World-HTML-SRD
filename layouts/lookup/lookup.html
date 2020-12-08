@@ -76,7 +76,8 @@
 		var tagFilterCreator = tag => ({
 			tag: tag,
 			test: function (json) {
-				return json.tags && json.tags.includes(tag) || json.damageTags && json.damageTags.includes(tag);
+				return json.tags && json.tags.reduce((last, t) => last | t.includes(tag), false)
+					|| json.damageTags && json.damageTags.reduce((last, t) => last | t.includes(tag), false);
 			}
 		});
 

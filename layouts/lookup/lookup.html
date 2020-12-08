@@ -56,7 +56,47 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="{{ $baseurl }}/bootstrap/js/bootstrap.min.js"></script>
 	<script>
-		var container = $(".inner-container")
+		var container = $(".inner-container");
+		var objects = [];
+
+		var typeFilterCreator = type => ({
+			type: type,
+			test: function (json) {
+				return json.type == this.type;
+			}
+		});
+
+		var nameFilterCreator = partialName => ({
+			partialName: partialName,
+			test: function (json) {
+				return json.names.english.includes(this.partialName) || json.names.chinese.includes(this.partialName);
+			}
+		});
+
+		var filterOptions = [
+			[
+				typeFilterCreator('洞穴居族'),
+				nameFilterCreator('C')
+			],
+			[
+				typeFilterCreator('貪掠團夥')
+			]
+		];
+
+		function TestFilter(data) {
+			let result = false;
+
+			for (var filters of filterOptions) {
+				let local = true;
+				for (var filter of filters) {
+					local &= filter.test(data)
+				}
+
+				result |= local;
+			}
+
+			return result;
+		}
 
 		function AppendHtml(json) {
 			let obj = $(".template.hide").clone(); //.text(JSON.stringify(json));
@@ -106,6 +146,19 @@
 				obj.find("ul").append("<li>" + behaviour + "</li>");
 
 			container.append(obj);
+			objects.push({
+				data: json,
+				dom: obj,
+				filter: function (param) {
+					this.render(TestFilter(this.data));
+				},
+				render: function (isEnable) {
+					if (isEnable)
+						this.dom.show(100);
+					else
+						this.dom.hide(100);
+				}
+			});
 		}
 
 		function ApplyJSON(array) {
@@ -118,7 +171,13 @@
 		};
 
 		ApplyJSON(['caverns', 'depths', 'experiments', 'folk', 'hordes', 'planes', 'swamp', 'undead', 'woods'])
-			.then(_ => OnPageReady());
+			.then(_ => OnPageReady())
+			.then(_ => {
+				for (var obj of objects) {
+					console.log(obj);
+					obj.filter(false);
+				}
+			});
 
 		function OnPageReady() {
 

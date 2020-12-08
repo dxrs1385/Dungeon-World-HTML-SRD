@@ -162,9 +162,9 @@
 				},
 				render: function (isEnable) {
 					if (isEnable)
-						this.dom.show(100);
+						this.dom.fadeIn(1000);
 					else
-						this.dom.hide(100);
+						this.dom.fadeOut(1000);
 				}
 			});
 		}
@@ -178,13 +178,15 @@
 			}));
 		};
 
+		function UpdateView() {
+			for (var obj of objects) {
+				obj.filter(); // demo for filter feature
+			}
+		}
+
 		ApplyJSON(['caverns', 'depths', 'experiments', 'folk', 'hordes', 'planes', 'swamp', 'undead', 'woods'])
 			.then(_ => OnPageReady())
-			.then(_ => {
-				for (var obj of objects) {
-					obj.filter(); // demo for filter feature
-				}
-			});
+			.then(_ => UpdateView());
 
 		function OnPageReady() {
 

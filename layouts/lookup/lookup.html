@@ -141,6 +141,20 @@
 			]
 		];
 
+		var clearFilter = () => {
+			filterOptions = [];
+		}
+
+		var addFilter = (filter, operation) => {
+			if (!filterOptions)
+				filterOptions = [];
+
+			if (operation == '&' || filterOptions.length == 0)
+				filterOptions.push([]);
+
+			filterOptions[filterOptions.length - 1].push(filter); // both and / or need to push filter into filter option
+		}
+
 		function TestFilter(data) {
 			let result = false;
 

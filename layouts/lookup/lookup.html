@@ -81,14 +81,63 @@
 			}
 		});
 
+		var hitPointFilterCreator = (hitPoint, operation) => ({
+			hitPoint: hitPoint,
+			operation: operation,
+			test: function (json) {
+				switch (this.operation) {
+					case '==':
+						return json.hitPoint == this.hitPoint;
+					case '<':
+						return json.hitPoint < this.hitPoint;
+					case '>':
+						return json.hitPoint > this.hitPoint;
+					case '<=':
+						return json.hitPoint <= this.hitPoint;
+					case '>=':
+						return json.hitPoint >= this.hitPoint;
+					case '!=':
+						return json.hitPoint != this.hitPoint;
+					default:
+						return true;
+				}
+			}
+		});
+
+
+		var armorPointFilterCreator = (armorPoint, operation) => ({
+			armorPoint: armorPoint,
+			operation: operation,
+			test: function (json) {
+				switch (this.operation) {
+					case '==':
+						return json.armorPoint == this.armorPoint;
+					case '<':
+						return json.armorPoint < this.armorPoint;
+					case '>':
+						return json.armorPoint > this.armorPoint;
+					case '<=':
+						return json.armorPoint <= this.armorPoint;
+					case '>=':
+						return json.armorPoint >= this.armorPoint;
+					case '!=':
+						return json.armorPoint != this.armorPoint;
+					default:
+						return true;
+				}
+			}
+		});
+
 		var filterOptions = [
 			[
 				typeFilterCreator('洞穴居族'),
 				// nameFilterCreator('C'),
-				tagFilterCreator('集團')
+				// tagFilterCreator('集團'),
+				armorPointFilterCreator(2, '<=')
 			],
 			[
-				typeFilterCreator('貪掠團夥')
+				typeFilterCreator('貪掠團夥'),
+				hitPointFilterCreator(7, '>=')
 			]
 		];
 

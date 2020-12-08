@@ -73,10 +73,18 @@
 			}
 		});
 
+		var tagFilterCreator = tag => ({
+			tag: tag,
+			test: function (json) {
+				return json.tags && json.tags.includes(tag) || json.damageTags && json.damageTags.includes(tag);
+			}
+		});
+
 		var filterOptions = [
 			[
 				typeFilterCreator('洞穴居族'),
-				nameFilterCreator('C')
+				// nameFilterCreator('C'),
+				tagFilterCreator('集團')
 			],
 			[
 				typeFilterCreator('貪掠團夥')
@@ -174,8 +182,7 @@
 			.then(_ => OnPageReady())
 			.then(_ => {
 				for (var obj of objects) {
-					console.log(obj);
-					obj.filter(false);
+					obj.filter(); // demo for filter feature
 				}
 			});
 
